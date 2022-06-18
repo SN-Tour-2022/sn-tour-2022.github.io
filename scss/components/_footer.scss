@@ -1,0 +1,64 @@
+.footer {
+    &-top {
+        width: 100%;
+    }
+
+    &-content {
+        margin-top: -8px;
+        padding-top: 28px;
+        background-color: $black;
+        color: $white;
+
+        .container {
+            display: grid;
+            grid-template-areas: 'logo nav'
+            'logo nav'
+            'legal legal';
+            grid-template-columns: 150px 1fr;
+
+            .stacked-logo {
+                grid-area: logo;
+                width: 150px;
+            }
+        }
+    }
+
+    .nav-link-container-footer {
+        grid-area: nav;
+        margin-inline-start: 128px;
+        align-self: center;
+        max-width: 550px;
+
+        @include medium {
+            margin-inline-start: 107px;
+        }
+        @include small {
+            display: block;
+            margin-inline-start: 30px;
+            align-self: flex-start;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 80px;
+
+            @include small {
+                height: 150px;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+
+            li {
+                text-align: left;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .legal {
+        grid-area: legal;
+        font-size: 14px;
+    }
+}
