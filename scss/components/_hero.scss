@@ -35,6 +35,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: $-nav-height;
+
+        @include small {
+            padding-top: $-nav-height-s;
+        }
     }
     &-tour-logo {
         @include css-property(min-width, 600px, 400px, 300px);

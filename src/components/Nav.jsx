@@ -24,9 +24,9 @@ const NavBar = () => {
             </div>
             <div className={open ? "menu-tray menu-tray-open" : "menu-tray"}>
                 <ul className="container">
-                    <li><a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer">Spy Ninjas Website</a></li>
-                    <li><HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)}>Tour Dates</HashLink></li>
-                    <li><Link className="nav-links" to="/competition">Competition</Link></li>
+                    <li><a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer" onClick={() => setOpen(!open)}>Spy Ninjas Website</a></li>
+                    <li><HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)} onClick={() => setOpen(!open)}>Tour Dates</HashLink></li>
+                    <li><Link className="nav-links" to="/competition" onClick={() => setOpen(!open)}>Competition</Link></li>
                 </ul>
             </div>
         </nav>
