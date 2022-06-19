@@ -2,8 +2,6 @@ import {months} from '../constants';
 import TourDate from '../partials/TourDate';
 
 const Tour = ({dates}) => {
-    console.log(dates);
-
     let tourDates = [];
 
     const dateTime = ({date}) => {
@@ -37,7 +35,7 @@ const Tour = ({dates}) => {
     }
 
     return (
-        <section className="tour">
+        <section className="tour" id="tour">
             <div className="tour-banner">
                 <div className="container">
                     <h2>Tour Dates</h2>

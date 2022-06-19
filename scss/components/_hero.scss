@@ -1,5 +1,10 @@
 .hero {
     position:relative;
+    padding-top: $-nav-height;
+
+    @include small {
+        padding-top: $-nav-height-s;
+    }
 
     @include small {
         width: 100%;

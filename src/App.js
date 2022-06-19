@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import Nav from './components/Nav';
-import Hero from './components/Hero';
-import VIP from './components/VIP';
-import Tour from './components/Tour';
+import Home from './components/Home';
 import './App.css';
 import Footer from './components/Footer';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Competition from "./components/Competition";
+import Terms from "./components/Terms";
+
 
 const query = `
 {
@@ -67,11 +73,15 @@ function App() {
 
   return (
     <div className="App">
-      <Nav/>
-      <Hero/>
-      <VIP vipTiles={vipCollection} vipDescription={vipDescription}/>
-      <Tour dates={tourDates}/>
-      <Footer/>
+      <Router>
+        <Nav/>
+        <Routes>
+          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} />}/>
+          <Route exact path='/competition' element={<Competition/>}/>
+          <Route exact path='/terms-and-conditions' element={<Terms/>}/>
+        </Routes>
+        <Footer/>
+      </Router>
     </div>
   );
 }
