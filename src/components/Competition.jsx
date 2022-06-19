@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Competition = ({competition}) => {
     let prizeList = [];
@@ -10,8 +11,13 @@ const Competition = ({competition}) => {
             </li>
         )
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     return (
-        <section class="competition">
+        <section className="competition">
             <div className="competition-hero">
                 <div className="container">
                     <h2>Competition</h2>
