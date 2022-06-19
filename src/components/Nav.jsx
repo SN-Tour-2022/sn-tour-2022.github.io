@@ -14,11 +14,11 @@ const NavBar = () => {
         <nav className="nav">
             <h1 className="hidden">Spy Ninjas Live</h1>
             <div className="container nav-content">
-                <a href="/" className="logo-link"><Logo className="logo"/></a>
+                <Link to="/" className="logo-link"><Logo className="logo"/></Link>
                 <div className="nav-link-container">
-                <a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer">Website</a>
-                <HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)}>Tour Dates</HashLink>
-                <Link className="nav-links" to="/competition">Competition</Link>
+                    <a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer">Website</a>
+                    <HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)}>Tour Dates</HashLink>
+                    <Link className="nav-links" to="/competition">Competition</Link>
                 </div>
                 <Hamburger open={open} setOpen={setOpen}/>
             </div>

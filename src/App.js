@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Competition from "./components/Competition";
 import Terms from "./components/Terms";
+import Popup from "./components/Popup";
 
 
 const query = `
@@ -52,6 +53,7 @@ function App() {
   const [vipDescription, setVipDescription] = useState(null);
   const [tourDates, setTourDates] = useState(null);
   const [competition, setCompetition] = useState(null);
+  const [openPopup, setOpenPopup] = useState(true);
 
   useEffect(() => {
     window
@@ -76,6 +78,10 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    openPopup ? document.body.classList.add("noscroll") : document.body.classList.remove("noscroll");
+  }, [openPopup]);
+
   if (!vipCollection || !vipDescription || !tourDates || !competition) {
     return "loading...";  
   }
@@ -83,9 +89,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}/>
         <Nav/>
         <Routes>
-          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} />}/>
+          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} openPopup={openPopup} setOpenPopup={setOpenPopup}/>}/>
           <Route exact path='/competition' element={<Competition competition={competition}/>}/>
           <Route exact path='/terms-and-conditions' element={<Terms/>}/>
         </Routes>

@@ -6,7 +6,7 @@ const Competition = ({competition}) => {
 
     for (let i = 0; i < competition.prizes.length; i++) {
         prizeList.push(
-            <li>
+            <li key={i}>
                 {competition.prizes[i]}
             </li>
         )
