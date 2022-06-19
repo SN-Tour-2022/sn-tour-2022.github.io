@@ -1,0 +1,8 @@
+.terms {
+    padding-top: $-nav-height;
+    margin-bottom: 56px;
+
+    @include small {
+        padding-top: $-nav-height-s
+    }
+}
