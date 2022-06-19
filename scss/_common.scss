@@ -96,6 +96,14 @@ ul {
         color: $white;
         pointer-events: none;
     }
+
+    &.competition-btn {
+        @include css-property(width, 300px, 200px, 200px);
+        height: 80px;
+        background-color: $green;
+        color: $white;
+        margin-top: 36px;
+    }
 }
 
 .hidden {

@@ -1,7 +1,7 @@
-const Terms = () => {
+const Terms = ({terms}) => {
     return (
         <div className="main">
-            Terms & Conditions go here.
+            {terms.termsConditions.json.content}
         </div>
     )
 }

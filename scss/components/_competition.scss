@@ -1,0 +1,48 @@
+.competition {
+    padding-top: $-nav-height;
+
+    @include small {
+        padding-top: $-nav-height-s;
+    }
+
+    &-hero {
+        background-image: url(../../public/bluebg.jpg);
+        height: 150px;
+        border-bottom: 2px solid $black;
+        border-top: 2px solid $black;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 36px;
+
+        p {
+            font-size: 1.5em;
+        }
+
+        li {
+            font-size: 1.75em;
+            font-weight: 400;
+            margin-top: 12px;
+        }
+
+        .legal {
+            margin-top: 72px;
+            a {
+                color: $black;
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+    }
+}

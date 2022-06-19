@@ -19,8 +19,8 @@
     &-dates {
         background: $black;
         position: relative;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 75px;
+        padding-bottom: 75px;
         border: 4px solid $black;
         clip-path: polygon(0 1%, 100% 0%, 100% 99%, 0% 100%);
         margin-top: -75px;
@@ -142,9 +142,14 @@
 
         &-item {
             margin-top: 28px;
+            text-align: center;
 
             &:first-of-type {
                 margin-top: 0;
+            }
+
+            @include large {
+                text-align: left;
             }
 
             @include medium {

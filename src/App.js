@@ -37,6 +37,13 @@ const query = `
       vipTicketLink,
       vipSoldOut
     }
+  },
+  competitionCollection {
+    items {
+      url,
+      prizes,
+      text
+    }
   }
 }`
 
@@ -44,6 +51,7 @@ function App() {
   const [vipCollection, setVipCollection] = useState(null);
   const [vipDescription, setVipDescription] = useState(null);
   const [tourDates, setTourDates] = useState(null);
+  const [competition, setCompetition] = useState(null);
 
   useEffect(() => {
     window
@@ -63,11 +71,12 @@ function App() {
 
         setVipCollection(data.vipCollectionCollection.items);
         setVipDescription(data.vipDescriptionCollection.items[0]);
-        setTourDates(data.tourDateCollection.items);        
+        setTourDates(data.tourDateCollection.items); 
+        setCompetition(data.competitionCollection.items[0]);      
       });
   }, []);
 
-  if (!vipCollection || !vipDescription || !tourDates) {
+  if (!vipCollection || !vipDescription || !tourDates || !competition) {
     return "loading...";  
   }
 
@@ -77,7 +86,7 @@ function App() {
         <Nav/>
         <Routes>
           <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} />}/>
-          <Route exact path='/competition' element={<Competition/>}/>
+          <Route exact path='/competition' element={<Competition competition={competition}/>}/>
           <Route exact path='/terms-and-conditions' element={<Terms/>}/>
         </Routes>
         <Footer/>
