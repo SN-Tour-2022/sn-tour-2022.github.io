@@ -22,7 +22,7 @@ const Tour = ({dates}) => {
         return dateTime;
     }
 
-    let sortedDates = dates.sort((a, b) => a.date.split('T')[0] > b.date.split('T')[0] ? 1 : -1);
+    let sortedDates = dates.sort((a, b) => a.date > b.date ? 1 : -1);
 
     for (let i = 0; i < sortedDates.length; i++) {
         let date = dateTime(sortedDates[i]);

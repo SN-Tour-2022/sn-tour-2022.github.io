@@ -16,7 +16,7 @@ const TourDate = ({
                 <span className="city">{city}</span>
                 <span className="venue">{venue}</span>
             </div>
-            <div className="date-time">{date}<br className="sm-hidden"/>  {time}</div>
+            <div className="date-time">{date}<br className="sm-hidden"/><span className='sm-show'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>{time}</div>
             <div className="ticket-btns">
                 <Button
                     type={tixSoldOut ? "red" : "green"}

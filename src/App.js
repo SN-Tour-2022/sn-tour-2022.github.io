@@ -50,6 +50,11 @@ const query = `
     items {
     	legalCopy
     }
+  },
+  showDescriptionCollection {
+    items {
+      text
+    }
   }
 }`
 
@@ -60,6 +65,7 @@ function App() {
   const [competition, setCompetition] = useState(null);
   const [terms, setTerms] = useState(null);
   const [openPopup, setOpenPopup] = useState(true);
+  const [showDescription, setShowDescription] = useState(null);
 
   useEffect(() => {
     window
@@ -81,7 +87,8 @@ function App() {
         setVipDescription(data.vipDescriptionCollection.items[0]);
         setTourDates(data.tourDateCollection.items); 
         setCompetition(data.competitionCollection.items[0]);   
-        setTerms(data.termsCollection.items);   
+        setTerms(data.termsCollection.items);
+        setShowDescription(data.showDescriptionCollection.items[0]);   
       });
   }, []);
 
@@ -89,9 +96,11 @@ function App() {
     openPopup ? document.body.classList.add("noscroll") : document.body.classList.remove("noscroll");
   }, [openPopup]);
 
-  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms) {
+  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription) {
     return "loading...";  
   }
+
+  console.log(showDescription);
 
   return (
     <div className="App">
@@ -99,7 +108,7 @@ function App() {
         <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}/>
         <Nav/>
         <Routes>
-          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} openPopup={openPopup} setOpenPopup={setOpenPopup}/>}/>
+          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} openPopup={openPopup} setOpenPopup={setOpenPopup} showDescription={showDescription}/>}/>
           <Route exact path='/competition' element={<Competition competition={competition}/>}/>
           <Route exact path='/terms-and-conditions' element={<Terms terms={terms}/>}/>
         </Routes>

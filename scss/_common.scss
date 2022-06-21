@@ -121,6 +121,13 @@ ul {
     }
 }
 
+.sm-show {
+    opacity: 0.3;
+    @include large {
+        display: none;
+    }
+}
+
 .hide {
     display: none;
 }
