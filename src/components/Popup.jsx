@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Popup = ({openPopup, setOpenPopup}) => {
+const Popup = ({openPopup, setOpenPopup, popup}) => {
     const handleClick = () => {
         setOpenPopup(!openPopup);
         document.querySelector('.popup').remove();
@@ -11,8 +11,9 @@ const Popup = ({openPopup, setOpenPopup}) => {
             <div className="overlay" onClick={handleClick}></div>
             <div className="popup-tile">
                 <button onClick={handleClick}>X</button>
-                <p>Enter our competition for the chance to win a trip for four to see Chad and Vy in Seattle!</p>
-                <Link className='btn green' to="/competition" onClick={handleClick}>Click here for information</Link>
+                <h2>{popup.title}</h2>
+                <p>{popup.description}</p>
+                <Link className='btn green' to="/competition" onClick={handleClick}>{popup.buttonText}</Link>
             </div>
         </div>
     )

@@ -55,6 +55,13 @@ const query = `
     items {
       text
     }
+  },
+  popupCollection {
+    items {
+      title,
+      description,
+      buttonText
+    }
   }
 }`
 
@@ -66,6 +73,7 @@ function App() {
   const [terms, setTerms] = useState(null);
   const [openPopup, setOpenPopup] = useState(true);
   const [showDescription, setShowDescription] = useState(null);
+  const [popupContent, setPopupContent] = useState(null);
 
   useEffect(() => {
     window
@@ -88,7 +96,8 @@ function App() {
         setTourDates(data.tourDateCollection.items); 
         setCompetition(data.competitionCollection.items[0]);   
         setTerms(data.termsCollection.items);
-        setShowDescription(data.showDescriptionCollection.items[0]);   
+        setShowDescription(data.showDescriptionCollection.items[0]);
+        setPopupContent(data.popupCollection.items[0]);   
       });
   }, []);
 
@@ -96,19 +105,19 @@ function App() {
     openPopup ? document.body.classList.add("noscroll") : document.body.classList.remove("noscroll");
   }, [openPopup]);
 
-  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription) {
+  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription || !popupContent) {
     return "loading...";  
   }
 
-  console.log(showDescription);
+  console.log(popupContent);
 
   return (
     <div className="App">
       <Router>
-        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}/>
+        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} popup={popupContent}/>
         <Nav/>
         <Routes>
-          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} openPopup={openPopup} setOpenPopup={setOpenPopup} showDescription={showDescription}/>}/>
+          <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} showDescription={showDescription}/>}/>
           <Route exact path='/competition' element={<Competition competition={competition}/>}/>
           <Route exact path='/terms-and-conditions' element={<Terms terms={terms}/>}/>
         </Routes>
