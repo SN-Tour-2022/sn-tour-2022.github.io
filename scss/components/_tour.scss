@@ -79,6 +79,7 @@
             @include large {
                 font-size: 36px;
                 line-height: 49px;
+                margin-inline-end: 28px;
             }
         }
 
@@ -89,6 +90,7 @@
 
             @include large {
                 text-align: left;
+                flex-grow: 1;
             }
 
 

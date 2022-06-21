@@ -53,7 +53,8 @@ const query = `
   },
   showDescriptionCollection {
     items {
-      text
+      text,
+      onSaleInfo
     }
   },
   popupCollection {
@@ -108,8 +109,6 @@ function App() {
   if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription || !popupContent) {
     return "loading...";  
   }
-
-  console.log(popupContent);
 
   return (
     <div className="App">

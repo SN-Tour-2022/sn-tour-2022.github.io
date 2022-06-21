@@ -1,7 +1,9 @@
 const ShowDescription = ({showDescription}) => {
     return (
         <div className="show-description container">
-            {showDescription.text}
+            <p>{showDescription.text}</p>
+
+            <p>{showDescription.onSaleInfo}</p>
         </div>
     )
 }
