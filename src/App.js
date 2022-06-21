@@ -42,8 +42,13 @@ const query = `
   competitionCollection {
     items {
       url,
+      text,
+      grandPrizeTitle,
+      grandPrizeText,
       prizes,
-      text
+      secondaryPrizeTitle,
+      secondaryText,
+      secondaryPrizes,
     }
   },
   termsCollection {

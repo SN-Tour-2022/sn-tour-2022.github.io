@@ -3,11 +3,20 @@ import { useEffect } from "react";
 
 const Competition = ({competition}) => {
     let prizeList = [];
+    let secondaryPrizeList = [];
 
     for (let i = 0; i < competition.prizes.length; i++) {
         prizeList.push(
             <li key={i}>
                 {competition.prizes[i]}
+            </li>
+        )
+    }
+
+    for (let i = 0; i < competition.secondaryPrizes.length; i++) {
+        secondaryPrizeList.push(
+            <li key={i}>
+                {competition.secondaryPrizes[i]}
             </li>
         )
     }
@@ -26,8 +35,15 @@ const Competition = ({competition}) => {
             
             <div className="competition-details container">
                 <p>{competition.text}</p>
+                <h2>{competition.grandPrizeTitle}</h2>
+                <p>{competition.grandPrizeText}</p>
                 <ul>
                     {prizeList}
+                </ul>
+                <h2>{competition.secondaryPrizeTitle}</h2>
+                <p>{competition.secondaryText}</p>
+                <ul>
+                    {secondaryPrizeList}
                 </ul>
                 <a className="competition-btn btn" href={competition.url}>Join Our List</a>
 
