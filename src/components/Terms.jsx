@@ -1,4 +1,5 @@
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useEffect } from "react";
 
 const Terms = ({terms}) => {
     let termsList = [];
@@ -9,6 +10,10 @@ const Terms = ({terms}) => {
             <ReactMarkdown key={i}>{terms[i].legalCopy}</ReactMarkdown>
         )
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <div className="terms container">
