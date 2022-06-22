@@ -59,7 +59,8 @@ const query = `
   showDescriptionCollection {
     items {
       text,
-      onSaleInfo
+      onSaleInfo,
+      youtubeUrl
     }
   },
   popupCollection {
