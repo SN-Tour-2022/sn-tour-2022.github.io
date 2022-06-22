@@ -83,11 +83,11 @@ function App() {
 
   useEffect(() => {
     window
-      .fetch(`https://graphql.contentful.com/content/v1/spaces/6d9xz55o7koc`, {
+      .fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_SPACE_ID}`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",
-          Authorization: `Bearer ltiRghT5tuxF0-eyW0RvZ7lXhJVLftCi6mgMOxDFDxw`,
+          Authorization: `Bearer ${process.env.REACT_APP_CDI}`,
         },
         body: JSON.stringify({ query }),
       })
