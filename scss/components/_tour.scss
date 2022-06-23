@@ -124,6 +124,20 @@
             .btn:last-of-type {
                 margin-inline-start: 24px;
             }
+
+            &.single-btn {
+                justify-content: center;
+
+                .btn:last-of-type {
+                    margin-inline-start: 0;
+                }
+
+                .btn {
+                    @include large {
+                        width: 284px;
+                    }
+                }
+            }
         }
 
         &-list {
