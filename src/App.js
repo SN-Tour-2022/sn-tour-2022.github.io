@@ -78,7 +78,6 @@ function App() {
   const [tourDates, setTourDates] = useState(null);
   const [competition, setCompetition] = useState(null);
   const [terms, setTerms] = useState(null);
-  const [openPopup, setOpenPopup] = useState(true);
   const [showDescription, setShowDescription] = useState(null);
   const [popupContent, setPopupContent] = useState(null);
 
@@ -104,22 +103,20 @@ function App() {
         setCompetition(data.competitionCollection.items[0]);   
         setTerms(data.termsCollection.items);
         setShowDescription(data.showDescriptionCollection.items[0]);
-        setPopupContent(data.popupCollection.items[0]);   
+        if (data.popupCollection.items.length !== 0) {
+          setPopupContent(data.popupCollection.items[0]);
+        }
       });
   }, []);
 
-  useEffect(() => {
-    openPopup ? document.body.classList.add("noscroll") : document.body.classList.remove("noscroll");
-  }, [openPopup]);
-
-  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription || !popupContent) {
+  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription) {
     return "loading...";  
   }
 
   return (
     <div className="App">
       <Router>
-        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} popup={popupContent}/>
+        <Popup popup={popupContent}/>
         <Nav/>
         <Routes>
           <Route exact path='/' element={<Home vipCollection={vipCollection} vipDescription={vipDescription} tourDates={tourDates} showDescription={showDescription}/>}/>

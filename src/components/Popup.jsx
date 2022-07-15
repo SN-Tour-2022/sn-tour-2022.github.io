@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const Popup = ({openPopup, setOpenPopup, popup}) => {
+const PopupComponent = ({popup}) => {
+    const [openPopup, setOpenPopup] = useState(true);
+
     const handleClick = () => {
         setOpenPopup(!openPopup);
         document.querySelector('.popup').remove();
     }
 
-    return (
+    useEffect(() => {
+        openPopup ? document.body.classList.add("noscroll") : document.body.classList.remove("noscroll");
+    }, [openPopup]);
+    
+        return (
         <div className="popup">
             <div className="overlay" onClick={handleClick}></div>
             <div className="popup-tile">
@@ -17,6 +24,14 @@ const Popup = ({openPopup, setOpenPopup, popup}) => {
             </div>
         </div>
     )
+}
+
+const Popup = ({popup}) => {
+    if (popup === null) {
+        return
+    } else {
+        return <PopupComponent popup={popup}/>
+    }
 }
 
 export default Popup;
