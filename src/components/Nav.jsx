@@ -2,9 +2,9 @@
 import React from "react";
 import Hamburger from "../partials/HamburgerMenu";
 import {ReactComponent as Logo} from '../svgs/snlogo.svg';
-import { HashLink } from "react-router-hash-link";
+// import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import { scrollWidthOffset } from "../helpers";
+// import { scrollWidthOffset } from "../helpers";
 
 
 const NavBar = () => {
@@ -17,8 +17,8 @@ const NavBar = () => {
                 <Link to="/" className="logo-link"><Logo className="logo"/></Link>
                 <div className="nav-link-container">
                     <a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer">Website</a>
-                    <HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)}>Tour Dates</HashLink>
-                    <Link className="nav-links" to="/competition">Competition</Link>
+                    {/* <HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)}>Tour Dates</HashLink> */}
+                    {/* <Link className="nav-links" to="/competition">Competition</Link> */}
                     <a className="nav-links" href="https://www.spyninjasstore.com/" target="_blank" rel="noreferrer" onClick={() => setOpen(!open)}>Shop</a>
                 </div>
                 <Hamburger open={open} setOpen={setOpen}/>
@@ -26,8 +26,8 @@ const NavBar = () => {
             <div className={open ? "menu-tray menu-tray-open" : "menu-tray"}>
                 <ul className="container">
                     <li><a className="nav-links" href="https://spyninjas.net/" target="_blank" rel="noreferrer" onClick={() => setOpen(!open)}>Spy Ninjas Website</a></li>
-                    <li><HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)} onClick={() => setOpen(!open)}>Tour Dates</HashLink></li>
-                    <li><Link className="nav-links" to="/competition" onClick={() => setOpen(!open)}>Competition</Link></li>
+                    {/* <li><HashLink className="nav-links" to="/#tour" smooth scroll={el => scrollWidthOffset(el)} onClick={() => setOpen(!open)}>Tour Dates</HashLink></li> */}
+                    {/* <li><Link className="nav-links" to="/competition" onClick={() => setOpen(!open)}>Competition</Link></li> */}
                     <li><a className="nav-links" href="https://www.spyninjasstore.com/" target="_blank" rel="noreferrer" onClick={() => setOpen(!open)}>Shop</a></li>
                 </ul>
             </div>

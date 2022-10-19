@@ -97,11 +97,21 @@ function App() {
           console.error(errors);
         }
 
-        setVipCollection(data.vipCollectionCollection.items);
-        setVipDescription(data.vipDescriptionCollection.items[0]);
-        setTourDates(data.tourDateCollection.items); 
-        setCompetition(data.competitionCollection.items[0]);   
-        setTerms(data.termsCollection.items);
+        if (data.vipCollectionCollection.items.length !== 0) {
+          setVipCollection(data.vipCollectionCollection.items);
+        }
+        if (data.vipDescriptionCollection.items !== 0) {
+          setVipDescription(data.vipDescriptionCollection.items[0]);
+        }
+        if (data.tourDateCollection.items !== 0) {
+          setTourDates(data.tourDateCollection.items);
+        } 
+        if (data.competitionCollection.items !== 0) {
+          setCompetition(data.competitionCollection.items[0]);
+        }
+        if (data.termsCollection.items !== 0) {   
+          setTerms(data.termsCollection.items);
+        }
         setShowDescription(data.showDescriptionCollection.items[0]);
         if (data.popupCollection.items.length !== 0) {
           setPopupContent(data.popupCollection.items[0]);
@@ -109,7 +119,7 @@ function App() {
       });
   }, []);
 
-  if (!vipCollection || !vipDescription || !tourDates || !competition || !terms || !showDescription) {
+  if (!showDescription) {
     return "loading...";  
   }
 

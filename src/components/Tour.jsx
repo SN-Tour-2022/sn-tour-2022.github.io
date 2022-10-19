@@ -1,7 +1,7 @@
 import {months} from '../constants';
 import TourDate from '../partials/TourDate';
 
-const Tour = ({dates}) => {
+const TourComponent = ({dates}) => {
     let tourDates = [];
 
     const dateTime = ({date}) => {
@@ -50,6 +50,14 @@ const Tour = ({dates}) => {
             </div>
         </section>
     )
+}
+
+const Tour = ({dates}) => {
+    if (dates === null) {
+        return 
+    } else {
+        <TourComponent dates={dates} />
+    }
 }
 
 export default Tour;
